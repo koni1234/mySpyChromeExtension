@@ -1,0 +1,5 @@
+gsExtReports/grunt/node_modules/*
+gsExtReports/grunt/npm-debug.log
+gsExtReports/gulp/*
+gsExtReports/reports/*
+node_modules/*

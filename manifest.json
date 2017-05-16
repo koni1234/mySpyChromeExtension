@@ -1,0 +1,46 @@
+{
+  // È obbligatorio definire nome e versione dell'applicazione
+  // il manifest che utilizziamo è quello della versione 2
+  "name": "My spy Inspector",
+  "version": "0.1",
+  "manifest_version": 2, 
+  //"browser_action": {
+//    "default_popup": "index.html"
+  //},
+   
+  // Opzionale, indichiamo descrizione, formato e nome dell'immagine
+  "description": "Spy tags inspector",
+  //"icons": { "16": "immagine.png" },
+   
+  // Serve per dichiarare quali moduli o API di chrome utilizzeremo
+  // nell'applicazione. Per questo esempio abbiamo indicato che 
+  // utilizzeremo i moduli chrome.tabs o chrome.windows
+  "permissions": [
+      "downloads",
+      "downloads.shelf",
+      "notifications",
+      "cookies", 
+      "http://*/*",
+      "https://*/*",
+      "file://*/*",
+      "activeTab",
+      "storage",
+      "unlimitedStorage",
+      "tabs",
+      "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["js/devtools.js"],
+    "persistent": false
+  }, 
+  // Ecco la parte in cui definiamo i nostri script per i contenuti
+  // e indichiamo a quali url applicare la nostra estensione
+  "content_scripts":
+  [
+    {
+      "matches": ["http://www.gamestorm.it/*","*://*.valentino.com/*","*://*.valentino.lcl/*","*://*.redvalentino.com/*","*://*.redvalentino.lcl/*","http://www.halldis.com/*"],  /*,"file:///* /* /* /Downloads/testReport*","file:///* /Downloads/testReport*"*/
+      "js":  ["js/jquery.min.js","js/jquery.nicescroll.min.js","js/FileSaver.min.js", "js/script.js"],
+      "css": ["css/effeckt.css","css/style.css"]
+    }
+  ] 
+}
